@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Generator</title>
+</head>
+<body>
+
+<h2>Certificate Generator</h2>
+
+<form action="/generate" method="POST" id="form">
+
+    <div id="people-container">
+        <div class="person">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="director" placeholder="Director" required>
+            <input type="text" name="coach" placeholder="Coach" required>
+        </div>
+    </div>
+
+    <button type="button" onclick="addPerson()">Add Another Person</button>
+    <button type="submit">Generate Certificates</button>
+
+</form>
+
+<script>
+function addPerson() {
+    const container = document.getElementById("people-container");
+
+    const div = document.createElement("div");
+    div.classList.add("person");
+
+    div.innerHTML = `
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="director" placeholder="Director" required>
+        <input type="text" name="coach" placeholder="Coach" required>
+    `;
+
+    container.appendChild(div);
+}
+</script>
+
+</body>
+</html>
