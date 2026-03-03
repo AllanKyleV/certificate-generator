@@ -7,17 +7,25 @@
 
 <h2>Certificate Generator</h2>
 
-<form action="/generate" method="POST" id="form">
+<form action="/generate" method="POST" enctype="multipart/form-data">
 
+    <h3>Manual Entry</h3>
     <div id="people-container">
-        <div class="person">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="text" name="director" placeholder="Director" required>
-            <input type="text" name="coach" placeholder="Coach" required>
+        <div>
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="director" placeholder="Director">
+            <input type="text" name="coach" placeholder="Coach">
         </div>
     </div>
 
     <button type="button" onclick="addPerson()">Add Another Person</button>
+
+    <hr>
+
+    <h3>OR Upload CSV</h3>
+    <input type="file" name="csv_file" accept=".csv">
+
+    <br><br>
     <button type="submit">Generate Certificates</button>
 
 </form>
@@ -27,14 +35,11 @@ function addPerson() {
     const container = document.getElementById("people-container");
 
     const div = document.createElement("div");
-    div.classList.add("person");
-
     div.innerHTML = `
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="text" name="director" placeholder="Director" required>
-        <input type="text" name="coach" placeholder="Coach" required>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="director" placeholder="Director">
+        <input type="text" name="coach" placeholder="Coach">
     `;
-
     container.appendChild(div);
 }
 </script>
